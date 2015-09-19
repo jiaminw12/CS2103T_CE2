@@ -9,14 +9,26 @@ import java.util.Scanner;
  * This class is used to store and retrieve the text from storage. The command
  * format is given by the example interaction below:
  * 
- * c:>java TextBuddy mytextfile.txt Welcome to TextBuddy. mytextfile.txt is
- * ready for use command: add little brown fox added to mytextfile.txt: ¡°little
- * brown fox¡± command: display 1. little brown fox command: add jumped over the
- * moon added to mytextfile.txt: ¡°jumped over the moon¡± command: display 1.
- * little brown fox 2. jumped over the moon command: delete 2 deleted from
- * mytextfile.txt: ¡°jumped over the moon¡± command: display 1. little brown fox
- * command: clear all content deleted from mytextfile.txt command: display
- * mytextfile.txt is empty command: exit
+	c:>java TextBuddy mytextfile.txt
+ 	Welcome to TextBuddy. mytextfile.txt is ready for use
+ 	command: add little brown fox 
+ 	added to mytextfile.txt: ¡°little brown fox¡±
+ 	command: display 
+ 	1. little brown fox 
+ 	command: add jumped over the moon 
+ 	added to mytextfile.txt: ¡°jumped over the moon¡±
+ 	command: display 
+ 	1. little brown fox
+ 	2. jumped over the moon 
+ 	command: delete 2 
+ 	deleted from mytextfile.txt: ¡°jumped over the moon¡± 
+ 	command: display 
+ 	1. little brown fox
+	command: clear
+	all content deleted from mytextfile.txt 
+	command: display
+	mytextfile.txt is empty 
+	command: exit
  * 
  * @author Wong Jia Min
  */
@@ -224,7 +236,11 @@ public class TextBuddy {
 		}
 		return String.format(MESSAGE_CLEAR, fileInput.getName());
 	}
-
+	
+	/**
+	 * This operation is used to sort all text in storage
+	 * 
+	 */
 	public static void sort() {
 		FileReader fileReader = null;
 		BufferedReader bufferedReader = null;
@@ -255,7 +271,12 @@ public class TextBuddy {
 			showToUser(e.getMessage());
 		}
 	}
-
+	
+	/**
+	 * This operation is used to search all lines in storage
+	 * 
+	 * @return the line contains specific character
+	 */
 	public static String searchText(String userCommand) {
 		StringBuilder sb = new StringBuilder();
 		if (removeFirstWord(userCommand).equals("")) {
